@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body ng-app="myApp">
+
+    <div ng-controller="Controller">
+        <div my-customer></div>
+
+    </div>
+    <div ng-controller="Controller1">
+        <div my-customer1></div>
+
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []).
+        controller('Controller', ['$scope', function($scope) {
+            $scope.customer = {
+                name: 'Naomi',
+                address: '1600 Amphitheatre'
+            };
+        }]).
+        controller('Controller1', ['$scope', function($scope) {
+                $scope.customer = {
+                    name: 'Naomi1',
+                    address: '1600 Amphitheatre1'
+                };
+            }])
+            .directive('myCustomer', function() {
+                return {
+                    templateUrl: 'mytemplate.html'
+                };
+            })
+            .directive('myCustomer1', function() {
+                return {
+                    templateUrl: 'mytemplate1.html'
+                };
+            });
+    </script>
+
+</body>
+
+</html>
